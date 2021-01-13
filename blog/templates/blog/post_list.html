@@ -8,22 +8,16 @@
     <title>Djangogirls Blog</title>
 </head>
 <body>
-    <div><h1>First Zhibek's blog</h1></div>
     <div>
-        <p>Hi there!</p>
-        <h2><a href="">Zhibek's first post</a></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto at debitis
-        dicta, dolores fugiat harum illum laboriosam laborum minus, neque, odio omnis qui ratione recusandae saepe sed suscipit voluptatibus!</p>
-        <p>It works!!!</p>
+        <h1><a href="/">Django Zhibek's Blog</a></h1>
     </div>
-    <div>
-        <h2><a href="https://djangogirls.org">Zhibek's second post</a></h2>
-        <p>published: 12.01.2021, 17:38</p>
-        <ul>
-            <li>первый элемент</li>
-            <li>второй элемент</li>
-            <li>третий элемент</li>
-        </ul>
-    </div>
+
+    {% for post in posts %}
+        <div>
+            <p>published: {{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
 </body>
 </html>
